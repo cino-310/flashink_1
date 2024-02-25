@@ -1,0 +1,21 @@
+.note-canvas-wrapper {
+    position: relative;
+    top: 104px;
+    left: 19px;
+    background-color: #FFFFFF;
+}
+
+.note-canvas {
+    position: absolute;
+    border: none;
+    font-family: Inter;
+    line-height: 32px;
+    text-align: left;
+    display: block;
+    direction: column;
+    overflow: auto;
+    width: 756px;
+    height: 900px;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0);
+}

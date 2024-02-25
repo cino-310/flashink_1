@@ -1,0 +1,8 @@
+.drawingmode-wrapper {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: -1376px;
+}

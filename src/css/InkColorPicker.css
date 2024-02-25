@@ -1,0 +1,15 @@
+.picker-wrapper {
+    position: absolute;
+    top: 480px;
+}
+
+.picker-back {
+    position: fixed;
+    inset: 0px;
+    z-index: 0;
+}
+
+.switches1-picker-wrapper {
+    position: absolute;
+    top: -282px;
+}

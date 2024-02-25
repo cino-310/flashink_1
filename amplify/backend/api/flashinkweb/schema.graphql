@@ -1,0 +1,88 @@
+enum TextOrder {
+  FIRST
+  SECOND
+  THIRD
+}
+
+enum MessageCode {
+  SUCCESS
+  WARNIG
+  ERROR
+}
+
+type Message @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  messageCd: MessageCode
+  content: String!
+}
+
+enum InkOrder {
+  FIRST
+  SECOND
+  THIRD
+}
+
+type Ink @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  colorCd: String
+  order: InkOrder!
+  toolbarID: ID! @index(name: "byToolBar")
+}
+
+enum DrawingMode {
+  TEXT
+  PEN
+  ERASER
+}
+
+type ToolBar @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  isInk1Visible: Boolean
+  isInk2Visible: Boolean
+  isInk3Visible: Boolean
+  currentFontSize: Int
+  currentColorCd: String
+  currentDrawingMode: DrawingMode
+  Inks: [Ink] @hasMany(indexName: "byToolBar", fields: ["id"])
+}
+
+type NotePen @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  xPosition: Int
+  yPosition: Int
+  penSize: Int
+  colorCd: String
+  contentID: String!
+  noteitemID: ID! @index(name: "byNoteItem")
+}
+
+type NoteText @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  xPosition: Int
+  yPosition: Int
+  fontSize: Int
+  colorCd: String
+  content: String
+  order: TextOrder!
+  noteitemID: ID! @index(name: "byNoteItem")
+}
+
+type NoteItem @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  title: String
+  createDate: String
+  createTime: String
+  updateDate: String
+  updateTime: String
+  accountID: ID! @index(name: "byAccount")
+  NoteTexts: [NoteText] @hasMany(indexName: "byNoteItem", fields: ["id"])
+  NotePens: [NotePen] @hasMany(indexName: "byNoteItem", fields: ["id"])
+  ToolBar: ToolBar @hasOne
+}
+
+type Account @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  mailAddress: String!
+  authID: String
+  NoteItems: [NoteItem] @hasMany(indexName: "byAccount", fields: ["id"])
+}

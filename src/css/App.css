@@ -1,0 +1,36 @@
+.App {
+  justify-self: center;
+}
+
+.AppSideBar {
+  position: relative;
+}
+
+.ActionButtonWrapper {
+  top: 80px;
+  left: 19px;
+  display: flex;
+  align-self: flex-start;
+  position: absolute;
+}
+
+.NoteListWrapper {
+  position: absolute;
+  top: 160px;
+  left: 0px;
+  max-height: 872px;
+  overflow-y: auto;
+}
+
+.NoteViewerWrapper {
+  position: absolute;
+  left: 401px;
+  top: 0px;
+  justify-content: flex-start;
+}
+
+.ToolBarWrapper {
+  position: absolute;
+  left: 1200px;
+  top: 0px;
+}

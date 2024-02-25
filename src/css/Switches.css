@@ -1,0 +1,26 @@
+.first-ink {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: -1080px;
+}
+
+.second-ink {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: -1072px;
+}
+
+.third-ink {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: -1064px;
+}
